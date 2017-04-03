@@ -54,7 +54,7 @@ module OmniKassa
     end
 
     def data_hash
-      Hash[data.split('|').map { |a| a.split('=') }]
+      Hash[*(data.split('|').map { |a| a.split('=') }).flatten]
     end
 
     class SealMismatchError < OmniKassaError; end
